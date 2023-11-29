@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/aut/reg}" th:object="${keyPostReg}">
+  <label for="nameuser">Enter name user:</label>
+  <input type="text" th:field="*{nameuser}" id="nameuser">
+  <div style="color:red"th:if="${#fields.hasErrors('nameuser')}" th:errors="*{nameuser}" > name error</div>
+  <br/>
+  <label for="mail">Enter mail:</label>
+  <input type="text" th:field="*{mail}" id="mail">
+  <div style="color:red"th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}" > name error</div>
+  <br/>
+  <label for="number">Enter number:</label>
+  <input type="text" th:field="*{number}" id="number">
+  <div style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Birth error</div>
+  <br/>
+  <label for="password">Enter password:</label>
+  <input id="password" th:field="*{password}" type="password">
+  <div style="color:red" th:field="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+  <br/>
+  <input type="submit" value="Registration">
+
+
+</form>
+</body>
+</html>

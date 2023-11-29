@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    button {
+      cursor: pointer;
+    }
+    img{
+      width: 50px;
+      cursor: pointer;
+      /*margin-left: 40px;*/
+    }
+  </style>
+</head>
+<body>
+<table >
+  <tbody>
+  <tr >
+    <th>ID</th>
+    <th>Name</th>
+    <th>Local</th>
+    <th>Amount day</th>
+    <th>Price</th>
+    <th>Text</th>
+    <th>Level</th>
+    <th>Photo</th>
+    <th>Path</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr th:each="tour : ${keyAdmin}">
+    <td>
+      <p><a th:text="${tour.getIdTour()}">d</a></p>
+    </td>
+
+    <td>
+      <p><a th:text="${tour.getNameTour()}">d</a></p>
+    </td>
+    <td>
+      <p><a th:text="${tour.getLocal()}">d</a></p>
+    </td>
+    <td>
+      <p><a th:text="${tour.getDay()}">d</a></p>
+    </td>
+    <td>
+      <p><a th:text="${tour.getPrice()}">d</a></p>
+    </td>
+    <td>
+      <p><a th:text="${tour.getIntro()}">d</a></p>
+    </td>
+    <td>
+      <p><a th:text="${tour.getLevelServerList()}">d</a></p>
+    </td>
+    <td>
+      <img th:src="@{'/images/' + ${tour.photoName}}" alt=""  >
+    </td>
+    <td>
+      <p><a th:text="${tour.getPath()}">d</a></p>
+    </td>
+    <td>
+          <a th:href="@{/admin/{id}(id=${tour.getIdTour()})}">
+      <p>Edit</p>
+  </a>
+    </td>
+    <td>
+
+        <form  th:method="delete" th:action="@{/admin/{id}(id=${tour.getIdTour()})}">
+          <input type="submit" value="Удалить"/>
+        </form>
+
+    </td>
+
+
+      </tr>
+  </tbody>
+</table>
+</body>
+</html>

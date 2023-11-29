@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Дестинация KG</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  button {
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<table >
+  <tbody>
+  <tr th:each="tour : ${keyAdmin}">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Local</th>
+    <th>Amount day</th>
+    <th>Price</th>
+    <th>Text</th>
+    <th>Photo name</th>
+    <th>Path</th>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td>
+      <p><a th:text="${tour.getIdTour()}">d</a></p>
+    </td>
+    <p><a th:text="${tour.getNameTour()}">d</a></p>
+    <td>
+<!--      <button onclick="updateRow(this)">Update</button>-->
+<!--      <button onclick="deleteRow(this)">Delete</button>-->
+<!--    </td>-->
+<!--  </tr>-->
+
+  </tbody>
+</table>
+<table>
+  <tbody>
+  <tr th:each="tour, iterStat : ${keyMain}">
+    <td>
+      <img th:src="@{'/images/' + ${tour.photoName}}" alt="" class="imgPh" >
+    </td>
+    <td>
+      <!--      <a th:href="@{/people/{id}(id=${person.getId()})}"-->
+      <p><a th:text="${tour.getNameTour()}">d</a></p>
+      <p><a th:text="${tour.getPrice()}">d</a></p>
+      <p><a th:text="${tour.getLocal()}">d</a></p>
+      <a th:href="@{/indexmain/{id}(id=${tour.getIdTour()})}" class="ctn">Learn more</a>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

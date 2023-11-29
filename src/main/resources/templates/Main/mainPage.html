@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Дестинация KG</title>
+  <link rel="stylesheet" href="/css/indexst.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar">
+    <img src="/images/different/logo.jpg" class="logo">
+
+    <nav>
+      <ul >
+        <li><a href="">Home</a> </li>
+        <li><a href="">About us</a> </li>
+        <li><a href="">Travel</a> </li>
+      </ul>
+    </nav>
+  </div>
+  <h2>Destination</h2>
+  <div class="text-defiz">
+    <div class="center-text">
+      <h2> Your dreams-our routes</h2>
+      <div class="line"></div>
+      <h1> Tours crafted just for you!</h1>
+    </div>
+  </div>
+</div>
+
+<section class="events">
+  <div class="title">
+    <h1>Welcome</h1>
+    <div class="line"></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img src="/images/different/jeti.jpg" alt="">
+      <h4>Jeti-Oguz</h4>
+<!--      <a href="#" class="ctn">Learn more</a>-->
+    </div>
+
+    <div class="col">
+      <img src="/images/different/car.jpg" alt="">
+      <h4>Jailoo</h4>
+<!--      <a href="#" class="ctn">Learn more</a>-->
+    </div>
+  </div>
+</section>
+
+<table>
+  <tbody>
+  <tr th:each="tour, iterStat : ${keyMain}">
+    <td>
+      <img th:src="@{'/images/' + ${tour.photoName}}" alt="" class="imgPh" >
+    </td>
+    <td>
+<!--      <a th:href="@{/people/{id}(id=${person.getId()})}"-->
+      <p><a th:text="${tour.getNameTour()}">d</a></p>
+      <p><a th:text="${tour.getPrice()}">d</a></p>
+      <p><a th:text="${tour.getLocal()}">d</a></p>
+      <a th:href="@{/indexmain/{id}(id=${tour.getIdTour()})}" class="ctn">Learn more</a>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+<div class="pagination">
+  <span>Page:</span>
+  <span th:each="i : ${#numbers.sequence(0, keyMain.totalPages - 1)}">
+        <a th:href="@{/indexmain(page=${i})}" th:text="${i + 1}"></a>
+    </span>
+</div>
+
+</body>
+</html>

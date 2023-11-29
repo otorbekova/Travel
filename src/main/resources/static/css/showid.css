@@ -1,0 +1,44 @@
+/*.explore{*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    !*background-image: url("/images/different/boz-16.jpg");*!*/
+
+/*    !*background-position: center;*!*/
+/*    !*background-size: cover;*!*/
+/*    !*background-repeat: no-repeat;*!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+.body, html{
+    overflow-x:hidden;
+}
+.explore-content{
+    width: 60%;
+    padding: 50px;
+    color: #1a1717;
+}
+.explore-content h1{
+    font-size: 7vmin;
+    margin:50px;
+}
+.line{
+    width: 150px;
+    height: 4px;
+    background: #BBCF96;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+.img{
+    width: 100%;
+    height: 50%;
+
+}
+.text-container {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+.bold-text {
+    font-weight: bold;
+    margin-right: 10px; /* Расстояние между текстом 1 и текстом 2 */
+}

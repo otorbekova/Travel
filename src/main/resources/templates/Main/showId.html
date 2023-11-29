@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/showid.css">
+</head>
+<body>
+<section class="explore" th:each="eac : ${keyid}">
+    <img th:src="@{'/images/' + ${eac.photoName}}" alt="">
+<h1> <a th:text="${eac.getNameTour()}">name</a></h1>
+    <div class="text-container">
+        <span class="bold-text"> Location</span>
+        <span><a th:text="${eac.getLocal()}">name</a> </span>
+    </div>
+    <div class="text-container">
+        <span class="bold-text"> Amount of days</span>
+        <span><a th:text="${eac.getDay()}">name</a> </span>
+    </div>
+    <div class="text-container">
+        <span class="bold-text">Price</span>
+        <span><a th:text="${eac.getPrice()}">name</a> </span>
+    </div>
+    <div class="text-container">
+    <span class="bold-text">Level</span>
+    <span><a th:text="${eac.getLevelServerList()}">name</a> </span>
+    </div>
+    <div class="text-container">
+        <span class="bold-text">And other data</span>
+        <span><a th:text="${eac.getIntro()}">name</a> </span>
+    </div>
+
+</section>
+
+</body>
+</html>
